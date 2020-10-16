@@ -44,7 +44,7 @@ class Faker(declarations.ParameteredDeclaration):
 
     def generate(self, params):
         locale = params.pop('locale')
-        subfaker = self._get_faker(locale)
+        subfaker = self._get_faker(locale, None)
         return subfaker.format(self.provider, **params)
 
     _FAKER_REGISTRY = {}
