@@ -43,8 +43,8 @@ class Faker(declarations.ParameteredDeclaration):
             **kwargs)
 
     def generate(self, params):
-        locale = params.pop('locale')
-        subfaker = self._get_faker(locale, None)
+        locale = params.pop('locale', None)
+        subfaker = self._get_faker(locale)
         return subfaker.format(self.provider, **params)
 
     _FAKER_REGISTRY = {}
